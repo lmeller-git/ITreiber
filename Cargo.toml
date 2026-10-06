@@ -34,12 +34,13 @@ rust-version = "1.85.0"
 
 [features]
 default = []
-std = ["alloc"]
-alloc = []
-atomic-fallback = ["portable-atomic/fallback"]
+std = ["alloc", "kasino/std"]
+alloc = ["kasino/alloc"]
+atomic-fallback = ["portable-atomic/fallback", "kasino/atomic-fallback"]
 
 [dependencies]
 crossbeam-utils = { version = "0.8.21", default-features = false }
+kasino = "0.3.0"
 portable-atomic = { version = "1.13.1", default-features = false, features = ["require-cas"] }
 
 [dev-dependencies]
